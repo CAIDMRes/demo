@@ -11,8 +11,8 @@ app_context = {
     'dst_root': '/data/mvk-mzl'}
 
 infos = {
-    'shape': [155, 240, 240],
-    'tiles': [0, 0, 0]}
+    'shape': [5, 240, 240],
+    'tiles': [5, 0, 0]}
 
 def convert_files():
     """
