@@ -269,7 +269,7 @@ def visualize_rcnn(n=9):
         if input('Continue (y/n)? ') != 'y':
             break
 
-visualize_rcnn()
+# visualize_rcnn()
 
 if __name__ == '__main__':
 
@@ -304,15 +304,11 @@ if __name__ == '__main__':
     #
     # import time
     # st = time.time()
-    # from show import show
-    # dt = db.DisplayTimeObject(activate=True)
     # sids = [] 
     # for i in range(500):
     #     batch = client.get()
     #     # batch = client.get_async()
     #     batch = client.create_inputs_dict(batch, mode='train')
-    #     # show(batch)
-    #     dt.show('Loaded %04i | capacity %02i' % (i, len(client.iterator['mixed'])))
     #
     # print('Elapsed time: %2.5f sec' % (time.time() - st))
 
