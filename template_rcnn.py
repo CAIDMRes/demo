@@ -95,7 +95,7 @@ class Client(cnn.rcnn.Client):
             vol = self.load(doc=next_doc['doc'], infos=next_doc['infos'])
         else:
             vol, next_doc = self.init_vol(vol, mode)
-            vol['dat'] = np.pad(vol['dat'], ((2, 2), (0,0), (0,0), (0,0)), mode='minimum')
+            vol['dat'] = np.pad(vol['dat'], ((2, 2), (0,0), (0,0), (0,0)), mode='constant')
 
         z = np.arange(2, vol['dat'].shape[0] - 2)
 

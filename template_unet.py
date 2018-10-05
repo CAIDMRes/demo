@@ -50,14 +50,19 @@ class Client(cnn.utils.Client):
 
         self.mode = 'mixed'
 
-    def get(self, mode=None, random=True, studyid=None, fileid=None, doc=None, infos=None, use_generator=True):
+    def get(self, mode=None, random=True, vol=None, studyid=None, fileid=None, doc=None, infos=None):
         """
         Method to load a single train/valid study with preprocessing
 
         """
         # Load data
-        next_doc = self.next_doc(mode=mode, random=random, doc=doc, studyid=studyid, fileid=fileid, infos=infos)
-        vol = self.load(doc=next_doc['doc'], infos=next_doc['infos'])
+        if vol is None:
+            next_doc = self.next_doc(mode=mode, random=random, doc=doc, studyid=studyid, fileid=fileid, infos=infos)
+            vol = self.load(doc=next_doc['doc'], infos=next_doc['infos'])
+        else:
+            vol, next_doc = self.init_vol(vol, mode)
+            vol['dat'] = np.pad(vol['dat'], ((2, 2), (0,0), (0,0), (0,0)), mode='constant')
+
         z = np.arange(2, vol['dat'].shape[0] - 2)
 
         # Preprocessing
